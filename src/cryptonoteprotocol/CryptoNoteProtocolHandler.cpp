@@ -1255,10 +1255,6 @@ namespace CryptoNote
             {
                 m_blockchainHeight = peerHeight;
                 logger(Logging::INFO, Logging::BRIGHT_GREEN) << "current height added: " << peerHeight;
-                logger(Logging::INFO, Logging::BRIGHT_YELLOW) << "current height added: " << peerHeight;
-                logger(Logging::INFO, Logging::BRIGHT_MAGENTA) << "current height added: " << peerHeight;
-                logger(Logging::INFO, Logging::BRIGHT_CYAN << "current height added: " << peerHeight;
-                logger(Logging::INFO, Logging::BRIGHT_RED) << "current height added: " << peerHeight;
             }
         }
 
