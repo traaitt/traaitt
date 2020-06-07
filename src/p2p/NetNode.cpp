@@ -97,24 +97,24 @@ namespace
                         "0")
                     != 0)
                 {
-                    logger(ERROR) << "UPNP_AddPortMapping failed.";
+                    logger(ERROR, BRIGHT_RED) << "UPNP_AddPortMapping failed.";
                 }
                 else
                 {
-                    logger(INFO) << "Added IGD port mapping.";
+                    logger(INFO, BRIGHT_GREEN) << "Added IGD port mapping.";
                 }
             }
             else if (result == 2)
             {
-                logger(INFO) << "IGD was found but reported as not connected.";
+                logger(INFO, BRIGHT_RED) << "IGD was found but reported as not connected.";
             }
             else if (result == 3)
             {
-                logger(INFO) << "UPnP device was found but not recognized as IGD.";
+                logger(INFO, BRIGHT_YELLOW) << "UPnP device was found but not recognized as IGD.";
             }
             else
             {
-                logger(ERROR) << "UPNP_GetValidIGD returned an unknown result code.";
+                logger(ERROR, BRIGHT_YELLOW) << "UPNP_GetValidIGD returned an unknown result code.";
             }
 
             FreeUPNPUrls(&urls);
