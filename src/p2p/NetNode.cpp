@@ -106,7 +106,7 @@ namespace
             }
             else if (result == 2)
             {
-                logger(INFO, BRIGHT_RED) << "IGD was found but reported as not connected.";
+                logger(INFO, BRIGHT_YELLOW) << "IGD was found but reported as not connected.";
             }
             else if (result == 3)
             {
