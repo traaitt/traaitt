@@ -378,7 +378,7 @@ int main(int argc, char *argv[])
         rpcServer.setFeeAmount(config.feeAmount);
         rpcServer.enableCors(config.enableCors);
         rpcServer.start(config.rpcInterface, config.rpcPort);
-        logger(INFO, BRIGHT_GREEN) << "Starting traaittXTE network server";
+        logger(INFO, BRIGHT_GREEN) << "Core RPC server started.";
 
         Tools::SignalHandler::install([&dch] {
             dch.exit({});

@@ -48,7 +48,7 @@ void RocksDBWrapper::init(const DataBaseConfig &config)
     }
     else if (!status.ok() && status.IsInvalidArgument())
     {
-        logger(INFO, BRIGHT_GREEN) << "DB not found in " << dataDir << ". Creating new DB...";
+        logger(INFO, BRIGHT_RED) << "Database not found in " << dataDir << ". Creating new Database...";
         dbOptions.create_if_missing = true;
         rocksdb::Status status = rocksdb::DB::Open(dbOptions, dataDir, &dbPtr);
         if (!status.ok())
@@ -79,7 +79,7 @@ void RocksDBWrapper::shutdown()
         throw std::system_error(make_error_code(CryptoNote::error::DataBaseErrorCodes::NOT_INITIALIZED));
     }
 
-    logger(INFO, BRIGHT_RED) << "Closing DB.";
+    logger(INFO, BRIGHT_RED) << "Closing Database.";
     db->Flush(rocksdb::FlushOptions());
     db->SyncWAL();
     db.reset();
@@ -95,14 +95,14 @@ void RocksDBWrapper::destroy(const DataBaseConfig &config)
 
     std::string dataDir = getDataDir(config);
 
-    logger(WARNING) << "Destroying DB in " << dataDir;
+    logger(WARNING) << "Destroying Database in " << dataDir;
 
     rocksdb::Options dbOptions = getDBOptions(config);
     rocksdb::Status status = rocksdb::DestroyDB(dataDir, dbOptions);
 
     if (status.ok())
     {
-        logger(WARNING) << "DB destroyed in " << dataDir;
+        logger(WARNING) << "Database destroyed in " << dataDir;
     }
     else
     {
