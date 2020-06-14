@@ -29,7 +29,7 @@
 #include <unistd.h>
 #endif
 
-#define SERVICE_NAME "Turtle-Service"
+#define SERVICE_NAME "XTEService"
 
 PaymentGateService *ppg;
 
